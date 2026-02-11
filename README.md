@@ -20,7 +20,7 @@ Olá! Eu sou o Cristiano e este repositório contém a documentação técnica d
 Assinatura: Selecione a assinatura ativa 
 Grupo de Recursos: VMs-01
 Nome da Máquina: MVCJL01
-Região: East US 2 (Foi necessário utilizar esse região pois a do “brasilsouth” não tinha o tamanho escolhido)..
+Região: East US 2 (Foi necessário utilizar esse região pois a do “brasilsouth” não tinha o tamanho escolhido "imagem5", por isso é importante observar as criticas que o azure apresenta).
 Imagem: Windows Server 2022 Datacenter: Azure Edition - x64 Gen2
 Tamanho: Standard_D2s_v3 – 2 vcpus, 8 GiB memória (US$ 0,02938)
 
