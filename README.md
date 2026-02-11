@@ -37,8 +37,10 @@ IP Público:  20.186.21.131( Interface de rede mvcjl01188_z1) Atribuído para ac
 Portal do Azure
 Git & GitHub
 
-**BONUS**
-Compartilhei aqui também o vídeo com o processo de criação da maquina virtual
+## 🎁 **BONUS**
+Compartilhei aqui também o link do vídeo com o processo de criação da maquina virtual
+
+##  ▶️ https://www.youtube.com/watch?v=tNtSkzlS3V8
 
 Desenvolvido por Cristiano Jesus Lima
 
