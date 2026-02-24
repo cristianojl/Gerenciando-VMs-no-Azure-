@@ -1,1 +1,61 @@
-READ
+📖 Sobre o Desafio
+Este repositório faz parte do treinamento da DIO (Digital Innovation One) e tem como objetivo documentar a implementação de estratégias de monitoramento no Microsoft Azure. O foco principal foi garantir que alterações críticas em Máquinas Virtuais (VMs) sejam detectadas e reportadas em tempo real, evitando "pontos cegos" na infraestrutura.
+
+🔔 O Jeito Fácil de Entender Alertas no Azure
+No Azure Monitor, você pode ser avisado sobre quase tudo o que acontece nos seus recursos. Mas não precisa se desesperar com tantas opções; aqui estão os tipos que você realmente vai usar no dia a dia:
+
+Alertas de Métricas (Os "Vigilantes"): Ficam de olho em números. Se o processador (CPU) da sua VM bater 90% ou se a memória estiver acabando, ele te avisa na hora. É o tipo mais comum e rápido.
+
+Alertas de Logs (Os "Investigadores"): Eles rodam uma busca (KQL) nos seus logs de tempos em tempos. É ótimo para achar erros específicos que aparecem nos textos dos logs, e não apenas em gráficos.
+
+Alertas de Log de Atividade (Os "Fofoqueiros"): Esses são essenciais para segurança! Eles te avisam quando alguém faz algo no portal, tipo: "Ei, alguém acabou de deletar aquela VM importante!" ou "O Azure está com instabilidade em tal região".
+
+Alertas Inteligentes: O Azure usa um pouco de IA para notar se algo está estranho (comportamento fora do comum) sem que você precise configurar cada detalhe.
+
+💡 Dica de Ouro: Monitorando tudo de uma vez
+Você não precisa criar um alerta para cada uma das suas 50 VMs. Dá para criar uma única regra que cuida de todas as máquinas de um grupo de recursos ou até da assinatura inteira. Isso economiza um tempo absurdo e evita que você esqueça de monitorar alguma máquina nova que for criada.
+
+Por que isso é importante no meu desafio?
+No laboratório, foquei em configurar o Log de Atividade para me avisar sobre a exclusão de recursos. É a diferença entre descobrir que algo sumiu porque um cliente reclamou ou receber um e-mail no segundo em que o botão "Excluir" foi apertado.
+
+Para o objetivo deste lab (evitar sustos com exclusão de VMs), o foco total foi no Log de Atividade. Configurei uma regra que monitora o evento Delete Virtual Machine. Assim, se qualquer engraçadinho tentar apagar o servidor, o Azure me avisa na hora!
+
+Conforme solicitado, segue o guia passo a passo para configurar um alerta no Azure Monitor que dispara uma notificação sempre que uma Máquina Virtual (VM) for deletada na nossa subscrição.
+
+Vamos lá passo a passo: Alerta de Máquina Virtual deletada
+
+1. Aceder ao Azure Monitor
+
+Entre no Portal do Azure e pesquise por "Monitor".
+
+No menu lateral esquerdo, clique em Alerts (Alertas).
+
+2. Criar a Regra de Alerta
+
+Clique em + Create > Alert rule.
+
+Na aba Scope (Escopo), selecione a sua Subscription (Assinatura) ou o Resource Group específico onde estão as VMs. Certifique-se de que o "Resource type" filtre por Virtual machines.
+
+3. Definir a Condição (Gatilho)
+
+Na aba Condition, clique em See all signals.
+
+Pesquise por: Delete Virtual Machine (Microsoft.Compute/virtualMachines).
+
+Selecione o sinal que tem como origem o Activity Log.
+
+Clique em Apply.
+
+4. Configurar as Ações (Notificação)
+
+Na aba Actions, selecione um Action Group existente ou crie um novo (clicando em Create action group).
+
+No novo grupo, defina o meio de comunicação (E-mail, SMS ou Push) e adicione os endereços dos responsáveis.
+
+5. Finalização
+
+Na aba Details, atribua um nome à regra (ex: Alerta !!) e defina a severidade como Informational ou Critical.
+
+Clique em Review + create e depois em Create.
+
+Desta forma, assim que uma operação de "Delete" for concluída com sucesso no log de atividades, a equipa será notificada imediatamente.
